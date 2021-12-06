@@ -1,0 +1,145 @@
+[
+    {
+        "key": "0x8cdf9d53f236",
+        "id": "0x8cdf9d53f236",
+        "status": "eesv",
+        "update_time": "1637078931495",
+        "admin_status": "enabled",
+        "monitoring_status": "enabled",
+        "mac_address": "8c:df:9d:53:f2:36",
+        "group_id": "17",
+        "vlan_tagging": "disabled",
+        "multi_mac_addresses": "enabled",
+        "type": "40g",
+        "eecard_type": "40g",
+        "uid_switch_status": "off",
+        "power_status": "on",
+        "pcie_link_width": "x8",
+        "interrupt_vector": "0x0",
+        "ee_version": "v1.0",
+        "device_id": "0x1d",
+        "revision": "0x0",
+        "fpga_version": "0x340028",
+        "eeprom_variation": "0x0",
+        "eeprom_data_version": "0x1",
+        "serial_number": "DG7MMQ   2BH070004",
+        "model": "ExpEther Board (40G)",
+        "max_eeio_count": "16",
+        "eesv_type": "nbc",
+        "host_serial_number": "FCH1905V2EG",
+        "host_model": "UCSC-C240-M4SX",
+        "link_status0": "up",
+        "link_status1": "down",
+        "notification_status0": [
+          "up",
+          "up"
+        ],
+        "notification_status1": [
+          "down",
+          "down"
+        ],
+        "encryption": [
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled",
+          "disabled"
+        ],
+        "compatibility": [
+          "default"
+        ],
+        "downstream_ports": [
+          {
+            "downstream_port_id": "0",
+            "eeio_connection_status": "up",
+            "eeio_mac_address": "8c:df:9d:51:29:30"
+          },
+          {
+            "downstream_port_id": "1",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "8c:df:9d:51:29:32"
+          },
+          {
+            "downstream_port_id": "2",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "3",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "4",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "5",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "6",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "7",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "8",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "9",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "10",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "11",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "12",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "13",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "14",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          },
+          {
+            "downstream_port_id": "15",
+            "eeio_connection_status": "down",
+            "eeio_mac_address": "00:00:00:00:00:00"
+          }
+        ]
+      }
+    ]

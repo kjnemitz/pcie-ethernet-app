@@ -1,0 +1,96 @@
+[
+      {
+        "key": "0x8cdf9d512930",
+        "id": "0x8cdf9d512930",
+        "status": "eeio",
+        "update_time": "1637078932401",
+        "admin_status": "enabled",
+        "monitoring_status": "enabled",
+        "mac_address": "8c:df:9d:51:29:30",
+        "group_id": "17",
+        "vlan_tagging": "disabled",
+        "multi_mac_addresses": "enabled",
+        "type": "40g",
+        "eecard_type": "40g",
+        "uid_switch_status": "off",
+        "power_status": "on",
+        "pcie_link_width": "x8",
+        "interrupt_vector": "0x0",
+        "ee_version": "v1.0",
+        "device_id": "0x1e",
+        "revision": "0x0",
+        "fpga_version": "0x440027",
+        "eeprom_variation": "0x0",
+        "eeprom_data_version": "0x3",
+        "serial_number": "6Z00101",
+        "model": "EE I/O Expansion Unit (40G)-2S",
+        "path_status0": "up",
+        "path_status1": "down",
+        "link_status0": "up",
+        "link_status1": "down",
+        "eesv_connection_status": "up",
+        "eesv_mac_address": "8c:df:9d:53:f2:36",
+        "pcie_connection_status": "up",
+        "pcie_vendor_id": "0x10de",
+        "pcie_device_id": "0x15f8",
+        "pcie_class_code": "0x30200",
+        "notification_status0": [
+          "up",
+          "up"
+        ],
+        "notification_status1": [
+          "down",
+          "down"
+        ],
+        "encryption": [
+          "disabled"
+        ]
+      },
+      {
+        "key": "0x8cdf9d512932",
+        "id": "0x8cdf9d512932",
+        "status": "eeio",
+        "update_time": "1637078930620",
+        "admin_status": "enabled",
+        "monitoring_status": "enabled",
+        "mac_address": "8c:df:9d:51:29:32",
+        "group_id": "3",
+        "vlan_tagging": "disabled",
+        "multi_mac_addresses": "enabled",
+        "type": "40g",
+        "eecard_type": "40g",
+        "uid_switch_status": "off",
+        "power_status": "on",
+        "pcie_link_width": "x8",
+        "interrupt_vector": "0x0",
+        "ee_version": "v1.0",
+        "device_id": "0x1e",
+        "revision": "0x0",
+        "fpga_version": "0x440027",
+        "eeprom_variation": "0x0",
+        "eeprom_data_version": "0x3",
+        "serial_number": "6Z00101",
+        "model": "EE I/O Expansion Unit (40G)-2S",
+        "path_status0": "down",
+        "path_status1": "down",
+        "link_status0": "up",
+        "link_status1": "down",
+        "eesv_connection_status": "down",
+        "eesv_mac_address": "00:00:00:00:00:00",
+        "pcie_connection_status": "up",
+        "pcie_vendor_id": "0x10de",
+        "pcie_device_id": "0x1db6",
+        "pcie_class_code": "0x30200",
+        "notification_status0": [
+          "up",
+          "up"
+        ],
+        "notification_status1": [
+          "down",
+          "down"
+        ],
+        "encryption": [
+          "disabled"
+        ]
+      }
+]

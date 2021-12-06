@@ -1,0 +1,78 @@
+[
+    {
+        "hostname": "linuxminer.localdomain",
+        "device_count": 1,
+        "process_count": 1,
+        "devices": [
+          {
+            "device_id": "0000:62:00.0",
+            "device_name": "Tesla V100-PCIE-32GB",
+            "device_brand": "Tesla",
+            "processes": [
+              {
+                "pid": 2853,
+                "name": "/root/miner",
+                "memory_measure": "MiB",
+                "memory_used": 3511.0,
+                "device_id": "0000:62:00.0"
+              }
+            ],
+            "temp_measure": "Celsius",
+            "temp": "69",
+            "max_temp": "90",
+            "min_temp": "87",
+            "power_measure": "Watts",
+            "power_draw": "200.08",
+            "maximum_power_threshold": "100.00",
+            "minimum_power_threshold": "250.00"
+          }
+        ],
+        "processes": [
+          {
+            "pid": 2853,
+            "name": "/root/miner",
+            "memory_measure": "MiB",
+            "memory_used": 3511.0,
+            "device_id": "0000:62:00.0"
+          }
+        ]
+      },
+      {
+        "hostname": "WIN-VBD6N0R3LQG",
+        "device_count": 1,
+        "process_count": 1,
+        "devices": [
+          {
+            "device_id": "0000:0C:00.0",
+            "device_name": "Tesla P100-PCIE-16GB",
+            "device_brand": "Tesla",
+            "processes": [
+              {
+                "pid": 2576,
+                "name": "C:\\Program Files\\ccminer-2.3-cuda9\\ccminer-x64.exe",
+                "memory_measure": "MiB",
+                "memory_used": 899.0,
+                "device_id": "0000:0C:00.0"
+              }
+            ],
+            "temp_measure": "Celsius",
+            "temp": "57",
+            "max_temp": "85",
+            "min_temp": "82",
+            "power_measure": "Watts",
+            "power_draw": "165.16",
+            "maximum_power_threshold": "125.00",
+            "minimum_power_threshold": "250.00"
+          }
+        ],
+        "processes": [
+          {
+            "pid": 2576,
+            "name": "C:\\Program Files\\ccminer-2.3-cuda9\\ccminer-x64.exe",
+            "memory_measure": "MiB",
+            "memory_used": 899.0,
+            "device_id": "0000:0C:00.0"
+          }
+        ]
+      }
+]
