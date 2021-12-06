@@ -1,0 +1,29 @@
+{
+  "name": "test-app",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ant-design/compatible": "^1.0.8",
+    "@ant-design/icons": "^4.7.0",
+    "@svgr/webpack": "^5.5.0",
+    "antd": "^4.16.13",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-import": "^1.13.3",
+    "next": "12.0.4",
+    "next-plugin-antd-less": "^1.5.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-native": "^0.66.3",
+    "swr": "^1.0.1",
+    "webpack-cli": "^4.9.1"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.4"
+  }
+}
