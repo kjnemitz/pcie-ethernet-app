@@ -21,7 +21,7 @@ module.exports = withAntdLess ({
   async headers() {
     return [
       {
-        source: '/index',
+        source: '/:slug*',
         headers: [
           {
             key: 'Accept',
@@ -33,7 +33,7 @@ module.exports = withAntdLess ({
           },
           {
             key: 'Authorization',
-            value: 'Basic '+Buffer.from('admin:10-9#One').toString('base64'),
+            value: 'Basic '+Buffer.from('admin:C1sc0123').toString('base64'),
           },
         ],
       },
