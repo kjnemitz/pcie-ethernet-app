@@ -21,7 +21,7 @@ module.exports = withAntdLess ({
   async headers() {
     return [
       {
-        source: '/:slug*',
+        source: '/api/:slug*',
         headers: [
           {
             key: 'Accept',
@@ -33,7 +33,7 @@ module.exports = withAntdLess ({
           },
           {
             key: 'Authorization',
-            value: 'Basic '+Buffer.from('admin:C1sc0123').toString('base64'),
+            value: 'Basic '+Buffer.from('admin:10-9#One').toString('base64'),
           },
         ],
       },
@@ -48,6 +48,10 @@ module.exports = withAntdLess ({
       {
         source: '/api/pcielookup/:slug*',
         destination: 'https://pcilookup.com/:slug*',
+      },
+      {
+        source: '/api/processes',
+        destination: 'http://108.52.141.121:30100/cgi-bin/nvidia-gpu.py',
       },
     ]
   },

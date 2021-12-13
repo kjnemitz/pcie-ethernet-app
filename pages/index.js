@@ -52,6 +52,7 @@ export default function Home() {
   const serversURL = '/api/eem/devices/detail/?status=eesv';
   const GPUURL = '/api/eem/devices/detail/?status=eeio';
   const deviceURL = '/api/eem/devices/';
+  const processesURL = '/api/processes';
   const fetcher = async url => fetch(url, {method: 'GET', headers: {'Authorization': 'Basic YWRtaW46MTAtOSNPbmU=', 'Content-Type': 'application/json','Accept': 'application/json'}})
                             .then(response => {
                               if (response.ok) {
@@ -73,7 +74,7 @@ export default function Home() {
                               console.log(JSON.stringify(data));
                               return data;
                             });
-const fetcherDevices = async url => fetch(url, {method: 'GET', headers: {'Authorization': 'Basic YWRtaW46MTAtOSNPbmU=', 'Content-Type': 'application/json','Accept': 'application/json'}})
+  const fetcherDevices = async url => fetch(url, {method: 'GET', headers: {'Authorization': 'Basic YWRtaW46MTAtOSNPbmU=', 'Content-Type': 'application/json','Accept': 'application/json'}})
                             .then(response => {
                               if (response.ok) {
                                 return response;
@@ -105,9 +106,33 @@ const fetcherDevices = async url => fetch(url, {method: 'GET', headers: {'Author
 //                              console.log(response.text());
                               return data;
                             });
+
+  const fetcherProcesses = async url => fetch(url, {method: 'GET', headers: {'Authorization': 'Basic YWRtaW46MTAtOSNPbmU=', 'Content-Type': 'application/json','Accept': 'application/json'}})
+                            .then(response => {
+                              if (response.ok) {
+                                return response;
+                              }
+                              // convert non-2xx HTTP responses into errors:
+                              const error = new Error(response.statusText);
+                              error.response = response;
+                              return Promise.reject(error);
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                              const result = [];
+                              result.push(data);
+                              console.log(result);
+                              return result;
+                            })
+                            .then(data => {
+                              console.log(JSON.stringify(data));
+                              return data;
+                            });
+
   const { data : system, error : error1 } = useSWR(systemURL, fetcher);
   const { data : serverDevices, error : error2 } = useSWR(serversURL, fetcherDevices);
   const { data : gpuDevices, error : error3 } = useSWR(GPUURL, fetcherDevices);
+  const { data : processes, error : error4 } = useSWR(processesURL, fetcherProcesses);
 
   const onChange = () => {};
   const [isAboutModalVisible, setIsAboutModalVisible] = useState(false);
@@ -176,6 +201,61 @@ const handleChangeIDCancel = () => {
     setConfirmChangeIDLoading(false)
     setIsChangeIDModalVisible(true);
   };
+
+
+  const [isRemoveIDModalVisible, setIsRemoveIDModalVisible] = useState(false);
+  const [confirmRemoveIDLoading, setConfirmRemoveIDLoading] = useState(false);
+  const [RemoveIDModalTitle, setRemoveIDModalTitle] = useState('Device ID');
+  const [removeIDform] = Form.useForm();
+  const handleRemoveIDOk = useCallback((values) => {
+    setConfirmRemoveIDLoading(true)
+    console.log(values);
+    var url = deviceURL+values.device_id+'/group_id';
+    console.log(url);
+//    var body = '{"group_id": "' + values.group_id + '"}';
+//    console.log(body);
+    var response = fetch(deviceURL+values.device_id+'/group_id', {method: 'DELETE', 
+                        headers: {'Authorization': 'Basic YWRtaW46MTAtOSNPbmU=', 'Content-Type': 'application/json','Accept': 'application/json'}})
+                    .then(response => {
+                      console.log(response.status+': '+response.statusText);
+                      if (response.ok) {
+                          return response;
+                        }
+//                        const error = new Error(response.statusText);
+//                        error.response = response;
+//                        return Promise.reject(error);
+                        return response;
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+//                    console.log(JSON.stringify(data));
+                    return data;
+                  });
+    mutate(systemURL);
+    mutate(serversURL);
+    mutate(GPUURL);
+//    setTimeout(() => {
+      setIsRemoveIDModalVisible(false);
+      setConfirmRemoveIDLoading(false);
+//    },2000);
+  }, [removeIDform]);
+const handleRemoveIDCancel = () => {
+    setConfirmRemoveIDLoading(false)
+    setIsRemoveIDModalVisible(false);
+  };
+  const showRemoveIDModal = (deviceId, deviceType, event) => {
+    if (deviceType == 'Server') {
+      setRemoveIDModalTitle('Remove Group ID for Server: ' + deviceId);
+    } else {
+      setRemoveIDModalTitle('Remove Group ID for Device: ' + deviceId);
+    }
+    removeIDform.setFieldsValue({'device_id' : deviceId});
+    setConfirmRemoveIDLoading(false)
+    setIsRemoveIDModalVisible(true);
+  };
+
+
+
 
   const apiColData = [
     {
@@ -303,7 +383,7 @@ const handleChangeIDCancel = () => {
       render: (text) => (
         <React.Fragment>
         {text === "" ? (
-          "Unknown"
+          "UCSC-C220-M5S"
         ) : (
           text
         )}
@@ -349,12 +429,16 @@ const handleChangeIDCancel = () => {
       key: "group_id",
       render: (text, record) => (
         <React.Fragment>
-          <div>{text} (<a onClick={showChangeIDModal.bind(this, record.id, 'Device')} >Change</a>)</div>
+          {text === "4093" ? (
+            <div>(<a onClick={showChangeIDModal.bind(this, record.id, 'Device')} >Change</a>)</div>
+          ) : (
+            <div>{text} (<a onClick={showChangeIDModal.bind(this, record.id, 'Device')} >Change</a>) (<a onClick={showRemoveIDModal.bind(this, record.id, 'Device')} >Remove</a>)</div>
+          )}
         </React.Fragment>
       ),
     },
     {
-      title: "EESV Status",
+      title: "Compute Status",
       dataIndex: "eesv_connection_status",
       key: "eesv_connection_status",
       align: "center",
@@ -374,9 +458,18 @@ const handleChangeIDCancel = () => {
     ),
     },
     {
-      title: "EESV MAC",
+      title: "Compute MAC",
       dataIndex: "eesv_mac_address",
       key: "eesv_mac_address",
+      render: (text) => (
+        <React.Fragment>
+        {text === "00:00:00:00:00:00" ? (
+          ""
+        ) : (
+          text
+        )}
+      </React.Fragment>
+      ),
     },
     {
       title: "Link 1/2",
@@ -520,7 +613,7 @@ const handleChangeIDCancel = () => {
       <h2 style={{'fontSize':'20px', 'paddingTop':'5px', 'paddingLeft':'20px'}}>Manager</h2>
       <Table columns={apiColData} dataSource={system} rowKey='version_number' size="small" pagination={false}/>
       <h2 style={{'fontSize':'20px', 'paddingTop':'5px', 'paddingLeft':'20px'}}>Compute</h2>
-      <Table columns={serverColData} dataSource={serverData} rowKey='hostname' size="small" pagination={false} expandable={{
+      <Table columns={serverColData} dataSource={processes} rowKey='hostname' size="small" pagination={false} expandable={{
         expandedRowRender: record => {
           return (
             <div style={{'paddingLeft':'80px'}}>
@@ -596,6 +689,21 @@ const handleChangeIDCancel = () => {
               ))}
               </Select>
             </Form.Item>
+            <Form.Item
+              name="device_id" hidden={true}>
+              <Input/>
+            </Form.Item>
+          </Form>
+        </div>
+      </Modal>      
+      <Modal title={RemoveIDModalTitle} visible={isRemoveIDModalVisible} onOk={removeIDform.submit} onCancel={handleRemoveIDCancel} confirmLoading={confirmRemoveIDLoading}
+            okButtonProps={{size:'small', shape:'round'}} cancelButtonProps={{size:'small', shape:'round'}} closable="false" >
+        <div style={{'fontSize':'20px', 'fontWeight':'bold'}}>
+          <Form
+            form={removeIDform}
+            name="removeIDForm"
+            autoComplete="on"
+            onFinish={handleRemoveIDOk}>
             <Form.Item
               name="device_id" hidden={true}>
               <Input/>
