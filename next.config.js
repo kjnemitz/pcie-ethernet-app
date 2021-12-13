@@ -43,7 +43,7 @@ module.exports = withAntdLess ({
     return [
       {
         source: '/api/eem/:slug*',
-        destination: 'http://108.52.141.121:30500/eem/:slug*',
+        destination: 'http://192.168.1.71:30500/eem/:slug*',
       },
       {
         source: '/api/pcielookup/:slug*',
@@ -51,7 +51,7 @@ module.exports = withAntdLess ({
       },
       {
         source: '/api/processes',
-        destination: 'http://108.52.141.121:30100/cgi-bin/nvidia-gpu.py',
+        destination: 'http://192.168.1.36:30100/cgi-bin/nvidia-gpu.py',
       },
     ]
   },

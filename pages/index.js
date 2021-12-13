@@ -178,6 +178,7 @@ export default function Home() {
     mutate(systemURL);
     mutate(serversURL);
     mutate(GPUURL);
+    mutate(processesURL);
 //    setTimeout(() => {
       setIsChangeIDModalVisible(false);
       setConfirmChangeIDLoading(false);
@@ -234,6 +235,7 @@ const handleChangeIDCancel = () => {
     mutate(systemURL);
     mutate(serversURL);
     mutate(GPUURL);
+    mutate(processesURL);
 //    setTimeout(() => {
       setIsRemoveIDModalVisible(false);
       setConfirmRemoveIDLoading(false);
@@ -617,14 +619,6 @@ const handleRemoveIDCancel = () => {
         expandedRowRender: record => {
           return (
             <div style={{'paddingLeft':'80px'}}>
-            <h3>Processes</h3>
-            <div style={{'paddingLeft':'20px'}}>
-              <Table dataSource={record.processes} rowKey='pid' size="small" scroll={{ x: '100%' }} pagination={{"hideOnSinglePage":true}}>
-                <Column title="Name" dataIndex="name" key="name" width="20"/>
-                <Column title="Process ID" dataIndex="pid" key="pid" width="20"/>
-                <Column title="Memory Used" dataIndex="memory_used" key="memory_used" render={(text, record) => (text + ' ' + record.memory_measure)} />
-              </Table>
-            </div>
             <h3 style={{'paddingTop':'15px'}}>Devices</h3>
             <div style={{'paddingLeft':'20px'}}>
               <Table dataSource={record.devices} rowKey='device_id' size="small" pagination={{"hideOnSinglePage":true}}>
@@ -632,6 +626,14 @@ const handleRemoveIDCancel = () => {
                 <Column title="Brand" dataIndex="device_brand" key="device_brand" width="20" />
                 <Column title="Temperature" dataIndex="temp" key="temp"  width="20" render={(text, record) => (text + ' ' + record.temp_measure)} />
                 <Column title="Power Draw" dataIndex="power_draw" key="power_draw" width="20" render={(text, record) => (text + ' ' + record.power_measure)} />
+              </Table>
+            </div>
+            <h3>Processes</h3>
+            <div style={{'paddingLeft':'20px'}}>
+              <Table dataSource={record.processes} rowKey='pid' size="small" scroll={{ x: '100%' }} pagination={{"hideOnSinglePage":true}}>
+                <Column title="Name" dataIndex="name" key="name" width="20"/>
+                <Column title="Process ID" dataIndex="pid" key="pid" width="20"/>
+                <Column title="Memory Used" dataIndex="memory_used" key="memory_used" render={(text, record) => (text + ' ' + record.memory_measure)} />
               </Table>
             </div>
             </div>
